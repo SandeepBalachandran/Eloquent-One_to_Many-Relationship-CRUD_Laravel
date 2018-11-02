@@ -54,7 +54,17 @@ Route::get('/delete/{id?}',function($id)
 {
     $user=User::find(1);
     $retVal=$user->posts()->whereId($id)->delete();
-    return $retVal; 
+    // return $retVal; 
+
+    if($retVal)
+    {
+        echo "deleted succesfully";
+
+    }
+    else
+    {
+        echo "Error deleting record";
+    }
 });
 
 Route::get('/hi',function()
